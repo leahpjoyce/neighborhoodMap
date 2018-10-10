@@ -1,0 +1,45 @@
+
+.header-wrapper {
+    margin: 20px;
+  
+  }
+  
+  .open-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    padding-right: 15px;
+    display: inline-block;
+  }
+  
+  h1 {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .open-btn:hover,
+  .open-btn:focus {
+      color: #3397db;
+      text-decoration: none;
+  }
+  
+  .nav-menu {
+    font-size: 32px;
+  }
+  
+  @media (max-width: 600px) {
+     h1 {
+      font-size: 15px;
+      margin: 20px;
+    }
+    .open-btn {
+      top: 20px;
+    }
+  
+    .nav-menu {
+      font-size: 25px;
+    }
+  
+  }

@@ -1,0 +1,105 @@
+
+#navbar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 191, 255);
+    overflow-x: hidden;
+    padding-top: 20px;
+    }
+  
+  
+  .sidebar-icon {
+      width: 100px;
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 25px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    
+    .close-button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 25px;
+      margin-right: 100px;
+      margin-top: 60px;
+      background-color: black;
+      border: 2px solid black;
+      border-radius: 50px; 
+      font-size: 20px;
+      cursor: pointer;
+      color: white;
+    }
+    
+    .sidebar-filter {
+      display: block;
+      border: 3px solid black; 
+      font-family: 'Questrial', sans-serif; 
+      text-indent: 10px; 
+      color: black;
+      margin: auto;
+    }
+    
+    #sidebar-list {
+      margin: 10px;
+      padding: 5px;
+      list-style: none;
+  
+    }
+    
+      /* Nav menu links wrapper */
+      #sidebar-list > ul {
+        height: 100vw; 
+        margin: 0; 
+        padding: 0; 
+        margin-top: 15px; 
+        line-height: 20px;
+        text-align: right;
+        padding-right: 20px;
+        padding-left: 20px;
+        color: white;
+        list-style: none;
+        cursor: pointer;
+   
+      }
+    
+    span {
+      color: black; 
+      display: block; 
+      padding: 12px; 
+      text-decoration: none; 
+      font-family: 'Questrial', sans-serif; 
+      text-align: center;
+      font-size: 15px;
+      border: 2px solid white;
+    }
+    
+    #sidebar-list a:hover {
+      background-color: rgb(77, 213, 255); 
+      color: black; 
+    }
+    
+    
+  .icon-btn-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+  
+    } 
+  
+    .nav-bar input[type=text] {
+      padding: 8px;
+      margin-left: 5px;
+      font-size: 17px;
+      border: solid;
+    }
+  
+  
+    @media (max-width: 600px) {
+  
+   }
