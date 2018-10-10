@@ -106,14 +106,16 @@ class Map extends Component {
     //When DOM loads, initialize Google Map
     componentDidMount() {
         if (!window.google) {
-            const s = document.createElement('script');
-            s.type = 'text/javascript';
-            s.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDCNrXEldAgmH2ozJr9gcUybeoiBJqPI2k`;
-            const x = document.getElementsByTagName('script')[0];
-            x.parentNode.insertBefore(s, x);
+            const index = window.document.getElementsByTagName('script')[0];
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDCNrXEldAgmH2ozJr9gcUybeoiBJqPI2k`;
+            script.async = true;
+            script.defer = true;
+            index.parentNode.insertBefore(script, index);
             // Below is important. 
             //We cannot access google.maps until it's finished loading
-            s.addEventListener('load', e => {
+            script.addEventListener('load', e => {
                 this.onLoad();
             })
         } else {
