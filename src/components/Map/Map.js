@@ -6,7 +6,7 @@ class Map extends Component {
     markers = [];
 
     // function to create the map once Google Maps script is loaded
-    onScriptLoad = () => {
+    onLoad = () => {
 
         //empty object to use on demand
         const current = {};
@@ -46,11 +46,11 @@ class Map extends Component {
     }
 
     // markers method
-    loadmarker = () => {
+    handleMarker = () => {
         const self = this;
         const {showingLocations, currentMarker, markerClicked } = this.props;
 
-        console.log('loadmarker');  //DEBUG
+        console.log('handleMarker');  //DEBUG
 
         while (this.markers.length) {
             this.markers.pop().setMap(null);
@@ -99,7 +99,7 @@ class Map extends Component {
 
     //invoke markers method immediately after update occurs, to be able to display them
     componentDidUpdate() {
-        this.loadmarker();
+        this.handleMarker();
     }
 
 
@@ -114,10 +114,10 @@ class Map extends Component {
             // Below is important. 
             //We cannot access google.maps until it's finished loading
             s.addEventListener('load', e => {
-                this.onScriptLoad();
+                this.onLoad();
             })
         } else {
-            this.onScriptLoad();
+            this.onLoad();
         }
     }
 
