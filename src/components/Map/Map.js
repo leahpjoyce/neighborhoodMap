@@ -3,7 +3,6 @@ import './Map.css';
 
 class Map extends Component {
 
-    state = {};
     markers = [];
 
     // function to create the map once Google Maps script is loaded
@@ -17,13 +16,14 @@ class Map extends Component {
         let startingPoint = {
             lat: 39.7684,
             lng: -86.1581
+
         };
 
         //define default attributes and starting point for map
         this.map = new window.google.maps.Map(
             document.getElementById('map'), {
                 center: startingPoint,
-                zoom: 7
+                zoom: 11
             }
         );
 
@@ -42,7 +42,6 @@ class Map extends Component {
         window.google.maps.event.addListener(this.map, 'click', function () {
             current.marker = false;
             infowindow.close();
-            
         });
     }
 
@@ -51,12 +50,12 @@ class Map extends Component {
         const self = this;
         const {showingLocations, currentMarker, markerClicked } = this.props;
 
-        console.log('loadmarker'); 
+        console.log('loadmarker');  //DEBUG
 
         while (this.markers.length) {
             this.markers.pop().setMap(null);
         }
-        console.log(showingLocations); 
+        console.log(showingLocations); //DEBUG
 
          //map over the showingLocations array
         //build a marker and push it into the markers array
@@ -83,17 +82,16 @@ class Map extends Component {
             this.markers.push(marker);
 
             window.google.maps.event.addListener(marker, 'click', function () {
-                markerClicked(configVenue.venue.id);
+                markerClicked(configVenue.venue.id)
             });
 
-            // https://stackoverflow.com/questions/7339200/bounce-a-pin-in-google-maps-once
+
             // show marker infowindow is selected
             if (currentMarker === configVenue.venue.id){
-                self.current.marker = marker;
+                self.current.marker = marker.setAnimation(window.google.maps.Animation.BOUNCE);
+                setTimeout(function(){ marker.setAnimation(null); }, 750);
                 self.infowindow.setContent(marker.title + ' ' + marker.address);
                 self.infowindow.open(self.map, marker);
-                marker.setAnimation(window.google.maps.Animation.BOUNCE);
-                setTimeout(function(){ marker.setAnimation(null); }, 750);
             }
 
         });
