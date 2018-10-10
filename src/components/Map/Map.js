@@ -4,6 +4,7 @@ import './Map.css';
 class Map extends Component {
 
     markers = [];
+  
 
     // function to create the map once Google Maps script is loaded
     onLoad = () => {
@@ -109,17 +110,19 @@ class Map extends Component {
             const index = window.document.getElementsByTagName('script')[0];
             const script = document.createElement('script');
             script.type = 'text/javascript';
-            script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDCNrXEldAgmH2ozJr9gcUybeoiBJqPI2k`;
             script.async = true;
             script.defer = true;
+            script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDCNrXEldAgmH2ozJr9gcUybeoiBJqPI2k`;
             index.parentNode.insertBefore(script, index);
             // Below is important. 
             //We cannot access google.maps until it's finished loading
             script.addEventListener('load', e => {
                 this.onLoad();
+                this.handleMarker();
             })
         } else {
             this.onLoad();
+            this.handleMarker();
         }
     }
 
