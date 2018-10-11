@@ -56,7 +56,7 @@ class Map extends Component {
         while (this.markers.length) {
             this.markers.pop().setMap(null);
         }
-        console.log(showingLocations); //DEBUG
+        console.log(showingLocations); //DEBUG  
 
          //map over the showingLocations array
         //build a marker and push it into the markers array
@@ -71,13 +71,14 @@ class Map extends Component {
             }
 
             //define marker
-            const marker = new window.google.maps.Marker({
+            let marker = new window.google.maps.Marker({
                 position: position,
                 map: this.map,
                 title: configVenue.venue.name,
                 address: configVenue.venue.location.address,
                 id: configVenue.venue.id,
             });
+            
 
             // push each new marker into the empty array of markers
             this.markers.push(marker);
